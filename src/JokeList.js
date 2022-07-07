@@ -4,6 +4,7 @@ import Joke from './Joke';
 import './JokeList.css';
 
 class JokeList extends React.Component {
+	// to set default props in class components, use the static property to set a defaultProps variable.
 	static defaultProps = { numJokesToGet: 10 };
 
 	constructor(props) {
@@ -13,6 +14,8 @@ class JokeList extends React.Component {
 		this.generateNewJokes = this.generateNewJokes.bind(this);
 		this.vote = this.vote.bind(this);
 	}
+
+	// To replicate the funcionality of useEffect in React Hooks, we use Lifecycle methods.
 
 	// At mount/first render --> getJokes()
 	componentDidMount() {
@@ -44,6 +47,7 @@ class JokeList extends React.Component {
 					console.log('duplicate found!');
 				}
 			}
+			// With class components, state is changed with the instance method setState.
 			this.setState({ jokes });
 		} catch (e) {
 			console.log(e);
